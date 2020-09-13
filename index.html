@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Website Example</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  .product{
+  	z-index: 999;
+  }
+  .productimage{
+  	z-index: 9;
+  }
+  .products_list,.products_filter{
+  	display: block;
+  }
+  .filters li{
+  	list-style: none;
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm container bg-white navbar-white">
+  
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Shop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Magazine</a>
+      </li>    
+    </ul>
+    <form class="form-inline ml-auto" action="/action_page.php">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-white">
+        	<i class="fa fa-search"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control" placeholder="search">
+    </div>
+  </form>
+  <div class="ml-3">
+  	<span class="fa fa-shopping-cart ml-3 mr-3"></span>
+  	<span>Login</span>
+  </div>
+  </div>  
+</nav>
+
+<div class="wrapper center-block">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading active" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+       o. Leggings occaecat craft beer farm-to-table, raw
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+</div>
+<div class="container mt-3">
+  <div class="row" id="home">
+    <div class="col-4">
+    	<ul class="filters">
+    		<li>
+    			Collection
+    		</li>
+    		<li>
+    			Color
+    		</li>
+    		<li>
+    			Category
+    		</li>
+    		<li>
+    			Price Range
+    			<br/>
+    			<input type="number" name="" id="min" value="0">
+    			<input type="number" name="" id="max" value="1000">
+    			<br/>
+    			<button type="submit" name="" id="submit" onclick="filtered()">Submit</button>
+    		</li>
+    	</ul>
+    </div>
+    <div class="col-8">
+    	<div class="row " id="products">
+    		
+    	</div>
+    	
+    </div>
+  </div>
+  <div id="details">
+  	
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      var products =JSON.parse(this.response);
+	      for(var id in products) {
+	      	var productcolumn=document.createElement("div");
+	      	var att = document.createAttribute("class");
+	      	att.value = "col-4 product";
+	      	var attOnClick = document.createAttribute("onclick");
+
+	      	attOnClick.value = "productDetails(event)";
+	      	productcolumn.setAttributeNode(att);
+
+
+	      	var slug = document.createAttribute("data-slug");
+	      	slug.value = products[id].slug;
+	      	productcolumn.setAttributeNode(slug);
+
+
+
+	      	productcolumn.setAttributeNode(attOnClick);
+	      	productcolumn.innerHTML='<img src="'+products[id].thumbnail+'" class="img-fluid productimage"><div class="clearfix"><span class="float-left">'+products[id].name+'</span> <span class="float-right">Rs '+products[id].price+'</span></div>';
+debugger
+
+			    var rating =Math.round(products[id].rating);
+			    for(var i =0; i<rating; i++ ){
+			    	var ratingSpan=document.createElement("span");
+			      	var classAtt = document.createAttribute("class");
+			      	classAtt.value = "fa fa-star";
+			      	ratingSpan.setAttributeNode(classAtt);
+			      	productcolumn.appendChild(ratingSpan);
+			    }
+			    document.getElementById("products").appendChild(productcolumn);
+			}
+	    }
+	  };
+	  xhttp.open("GET", "http://localhost:8081/listProducts", true);
+	  xhttp.send();
+	}
+
+	loadDoc();
+
+	function productDetails(event){
+		document.getElementById('details').innerHTML='';
+		// console.log(event.target.parentElement.getAttribute('data-slug'));
+		var product_slug= event.target.parentElement.getAttribute('data-slug');
+		window.history.pushState("{}", "Title", '/getUser/'+product_slug);
+		var xhttp = new XMLHttpRequest();
+	  	xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	console.log(JSON.parse(this.response));
+		    	var singleProduct = JSON.parse(this.response)
+		    	var home = document.getElementById('home').style.display='none';
+
+		    	var productimage=document.createElement("div");
+	      		var att = document.createAttribute("class");
+	      		att.value = "row";
+	      		productimage.setAttributeNode(att);
+	      		var setid = document.createAttribute("id");
+	      		setid.value = "details_of_product";
+	      		productimage.setAttributeNode(setid);
+
+	      		document.getElementById("details").appendChild(productimage)
+	      		productimage.innerHTML = '<div class="col-6"><img src="'+'../'+singleProduct.thumbnail+'" class="img-fluid"></div><div class="col-6"><h4>'+singleProduct.name+'</h4><p>'+singleProduct.description+'</p><div><span><b>RS.'+singleProduct.price+'</b></span><button class="bg-dark text-white ml-5">Buy now</button><i class="fa fa-shopping-cart ml-5"></i></div></div>';
+		    	
+		    }
+		};
+		xhttp.open("GET", "http://localhost:8081/getProduct/"+product_slug, true);
+		xhttp.send();
+		
+	}
+
+	window.addEventListener('popstate', function (event) {
+	// The URL changed...
+	console.log(window.location);
+	if(window.location.pathname=='/'){
+		document.getElementById('details_of_product').style.display='none';
+		document.getElementById('home').style.display='flex';
+	}
+	});
+
+	function filtered(){
+		document.getElementById('products').innerHTML='';
+		var minvalue= document.getElementById('min').value;
+		var maxvalue= document.getElementById('max').value;
+console.log(minvalue+" "+maxvalue);
+		var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      var products =JSON.parse(this.response);
+	      for(var id in products) {
+	      	var productcolumn=document.createElement("div");
+	      	var att = document.createAttribute("class");
+	      	att.value = "col-4 product";
+	      	var attOnClick = document.createAttribute("onclick");
+
+	      	attOnClick.value = "productDetails(event)";
+	      	productcolumn.setAttributeNode(att);
+
+
+	      	var slug = document.createAttribute("data-slug");
+	      	slug.value = products[id].slug;
+	      	productcolumn.setAttributeNode(slug);
+
+
+
+	      	productcolumn.setAttributeNode(attOnClick);
+	      	productcolumn.innerHTML='<img src="'+products[id].thumbnail+'" class="img-fluid productimage"><div class="clearfix"><span class="float-left">'+products[id].name+'</span> <span class="float-right">Rs '+products[id].price+'</span></div>';
+
+	      	// var newproduct = '<div class="col-4"></div>'
+			    // console.log();
+			    var rating =Math.round(products[id].rating);
+			    for(var i =0; i<rating; i++ ){
+			    	var ratingSpan=document.createElement("span");
+			      	var classAtt = document.createAttribute("class");
+			      	classAtt.value = "fa fa-star";
+			      	ratingSpan.setAttributeNode(classAtt);
+			      	productcolumn.appendChild(ratingSpan);
+			    }
+			    document.getElementById("products").appendChild(productcolumn);
+			}
+	    }
+	  };
+	  xhttp.open("GET", "http://localhost:8081/filterProducts?minvalue="+minvalue+"&maxvalue="+maxvalue, true);
+	  xhttp.send();
+	}
+</script>
+
+</body>
+</html>

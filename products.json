@@ -1,0 +1,63 @@
+{
+    "products" :[{
+       "name" : "coombes",
+       "slug": "chair1",
+       "category": "Furniture",
+       "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+       "rating" : 3.6,
+       "price":255.00,
+       "thumbnail":"./furniture1.jpeg",
+       "images":["asdasd"],
+       "id": 1
+    },{
+       "name" : "keev Set",
+       "slug": "chair2",
+       "category": "Furniture",
+       "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+       "rating" : 2.7,
+       "price":350,
+       "thumbnail":"./furniture1.jpeg",
+       "images":["adasd"],
+       "id": 2
+    },{
+       "name" : "Nile",
+       "slug": "chair3",
+       "category": "Furniture",
+       "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+       "rating" : 5,
+       "price":895,
+       "thumbnail":"./furniture1.jpeg",
+       "images":["zssdasd"],
+       "id": 3
+    },{
+      "name" : "coombes",
+      "slug": "chair1",
+      "category": "Furniture",
+      "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "rating" : 3.6,
+      "price":255.00,
+      "thumbnail":"./furniture1.jpeg",
+      "images":["asdasd"],
+      "id": 1
+   },{
+      "name" : "keev Set",
+      "slug": "chair2",
+      "category": "Furniture",
+      "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "rating" : 2.7,
+      "price":350,
+      "thumbnail":"./furniture1.jpeg",
+      "images":["adasd"],
+      "id": 2
+   },{
+      "name" : "Nile",
+      "slug": "chair3",
+      "category": "Furniture",
+      "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "rating" : 5,
+      "price":895,
+      "thumbnail":"./furniture1.jpeg",
+      "images":["zssdasd"],
+      "id": 3
+   }]
+ }
