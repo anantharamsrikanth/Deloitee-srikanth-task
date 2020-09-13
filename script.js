@@ -2,37 +2,43 @@ function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        var products =JSON.parse(this.response);
-        for(var id in products) {
-            var productcolumn=document.createElement("div");
-            var att = document.createAttribute("class");
-            att.value = "col-4 product";
-            var attOnClick = document.createAttribute("onclick");
-
-            attOnClick.value = "productDetails(event)";
-            productcolumn.setAttributeNode(att);
-
-
-            var slug = document.createAttribute("data-slug");
-            slug.value = products[id].slug;
-            productcolumn.setAttributeNode(slug);
-
-
-
-            productcolumn.setAttributeNode(attOnClick);
-            productcolumn.innerHTML='<img src="'+products[id].thumbnail+'" class="img-fluid productimage"><div class="clearfix"><span class="float-left">'+products[id].name+'</span> <span class="float-right">Rs '+products[id].price+'</span></div>';
-
-              var rating =Math.round(products[id].rating);
-              for(var i =0; i<rating; i++ ){
-                  var ratingSpan=document.createElement("span");
-                    var classAtt = document.createAttribute("class");
-                    classAtt.value = "fa fa-star";
-                    ratingSpan.setAttributeNode(classAtt);
-                    productcolumn.appendChild(ratingSpan);
+          if(this.response){
+            var products =JSON.parse(this.response);
+            for(var id in products) {
+                var productcolumn=document.createElement("div");
+                var att = document.createAttribute("class");
+                att.value = "col-4 product";
+                var attOnClick = document.createAttribute("onclick");
+    
+                attOnClick.value = "productDetails(event)";
+                productcolumn.setAttributeNode(att);
+    
+    
+                var slug = document.createAttribute("data-slug");
+                slug.value = products[id].slug;
+                productcolumn.setAttributeNode(slug);
+    
+    
+    
+                productcolumn.setAttributeNode(attOnClick);
+                productcolumn.innerHTML='<img src="'+products[id].thumbnail+'" class="img-fluid productimage"><div class="clearfix"><span class="float-left">'+products[id].name+'</span> <span class="float-right">Rs '+products[id].price+'</span></div>';
+    
+                  var rating =Math.round(products[id].rating);
+                  for(var i =0; i<rating; i++ ){
+                      var ratingSpan=document.createElement("span");
+                        var classAtt = document.createAttribute("class");
+                        classAtt.value = "fa fa-star";
+                        ratingSpan.setAttributeNode(classAtt);
+                        productcolumn.appendChild(ratingSpan);
+                  }
+                  document.getElementById("products").appendChild(productcolumn);
               }
-              document.getElementById("products").appendChild(productcolumn);
+          } else {
+              document.getElementById('products').innerHTML= "There Is No Data";
           }
-      }
+        
+        
+      } 
     };
     xhttp.open("GET", "http://localhost:8081/listProducts", true);
     xhttp.send();
