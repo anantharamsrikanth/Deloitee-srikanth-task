@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.container .filters .dropdown-toggle {
+  width: 175px !important;
+  background: transparent;
+  color: black;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.container .filters .btn {
+  width: 175px;
+}
+
+.container .filters li {
+  list-style-type: none;
+}
+
+.container .products_list .products_filter {
+    display: block;
+}
+/*# sourceMappingURL=style.css.map */
