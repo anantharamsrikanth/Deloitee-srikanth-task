@@ -36,8 +36,6 @@ function loadDoc() {
           } else {
               document.getElementById('products').innerHTML= "There Is No Data";
           }
-        
-        
       } 
     };
     xhttp.open("GET", "http://localhost:8081/listProducts", true);
